@@ -5,3 +5,5 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 # Need to add 'use' and 'run' methods for controllers
+
+use Rack::MethodOverride
