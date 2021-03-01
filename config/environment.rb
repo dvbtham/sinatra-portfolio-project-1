@@ -10,3 +10,5 @@ ActiveRecord::Base.establish_connection(
 )
 
   # need a require_all here for controllers in app and 
+
+  require_all 'app'
