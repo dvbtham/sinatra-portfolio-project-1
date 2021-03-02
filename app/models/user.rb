@@ -1,7 +1,16 @@
 class User < ActiveRecord::Base
- #need secure password method here
+ 
+ has_secure_password
 
  has_many :paintings
  has_many :artists, through: :paintings
+
+ def slug
+    username.downcase.gsub(" ","-")
+  end
+
+  def self.find_by_slug(slug)
+    User.all.find{|user| user.slug == slug}
+  end
 
 end 
