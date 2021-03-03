@@ -1,11 +1,11 @@
 <h1> User Homepage </h1>
 
-<h2>Welcome<%=current_user.username %>!</h2>
-<p> Below is a list of your favorite paintings </p>
+<h2>Welcome<%= @user.username %>!</h2>
+<p> Below is a list of your favorite paintings: </p>
 <% @user.paintings.each do |painting| %>
   <div>
     <%= painting.painting_name %>
     <%= painting.year %>
-    #<%= painting.artist_id.name %>
+    <%= painting.artist_id.name %>
   </div>
 <% end %>
