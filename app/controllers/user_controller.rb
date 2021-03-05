@@ -20,7 +20,7 @@ post '/login' do
         session[:user_id] = user.id
         redirect to '/user_homepage'
     else 
-        redirect to '/'
+        redirect to '/new_user'
     end 
 end 
 
@@ -37,7 +37,7 @@ get '/signup' do
   if !logged_in?
     erb :'users/new_user'
   else
-    redirect to '/user_homepage'
+    redirect to '/paintings'
   end
 end 
 
