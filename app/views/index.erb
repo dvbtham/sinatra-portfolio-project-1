@@ -1,17 +1,6 @@
 <h2>Welcome to Favorite Paintings!</h2>
 
-<nav> 
-
-<% if logged_in? %>
-  <p> Hello <%=current_user.username %>! </p>
-  <a href="/user_homepage"> </a>
-
-
-  <% else %>
     <p> Please log in or sign up </p>
     <a href="/login"> Log In </a>
     <a href="users/new_user"> Sign Up </a>
   
-  <% end %>
-
-</nav>
