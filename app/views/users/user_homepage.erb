@@ -1,8 +1,8 @@
 <h1> User Homepage </h1>
 
-<h2>Welcome <%= @user.username %>!</h2>
+<h2>Welcome <%= current_user.username %>!</h2>
 <p> Below is a list of your favorite paintings: </p>
-<% @user.paintings.each do |painting| %>
+<% @current_user.paintings.each do |painting| %>
   <div>
     <%= painting.painting_name %>
     <%= painting.year %>
