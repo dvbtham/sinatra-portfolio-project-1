@@ -9,6 +9,11 @@ class PaintingsController < ApplicationController
         end 
       end
 
+    post "/paintings" do
+      Painting.create(params)
+      redirect "/paintings"
+     end
+
     get "/paintings/new" do
       erb :'paintings/new'
     end  
@@ -19,11 +24,14 @@ class PaintingsController < ApplicationController
         erb :'paintings/edit'
     end
 
+    post "/paintings/:id" do
+        @painting = Painting.find(params[:id])
+        @painting.update(params.select{|p| p=="name" || p=="year" || p=="artist_id"})
+        redirect "/paintings/#{@painting.id}"
+      end
 
-    post "/paintings" do
-        Painting.create(params)
-        redirect "/paintings"
-     end
+
+
    
 
 
