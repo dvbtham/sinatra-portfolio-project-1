@@ -8,6 +8,22 @@ class PaintingsController < ApplicationController
           redirect to '/login'
         end 
       end
+
+    get "/paintings/new" do
+      erb :'paintings/new'
+    end  
+
+
+    get "/paintings/:id/edit" do
+        @painting = Painting.find(params[:id])
+        erb :'paintings/edit'
+    end
+
+
+    post "/paintings" do
+        Painting.create(params)
+        redirect "/paintings"
+     end
    
 
 
