@@ -20,7 +20,7 @@ post '/login' do
         session[:user_id] = user.id
         redirect to '/user_homepage'
     else 
-        redirect to '/new_user'
+        redirect to 'users/new_user'
     end 
 end 
 
