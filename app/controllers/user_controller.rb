@@ -44,7 +44,7 @@ end
 
 post '/signup' do
   if params[:username] == "" || params[:email] == "" || params[:password] == ""
-    redirect to '/signup'
+    redirect to '/new_user'
   else
     @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
     @user.save
