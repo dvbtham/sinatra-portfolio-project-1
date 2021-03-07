@@ -31,6 +31,12 @@ class PaintingsController < ApplicationController
       end
 
 
+      get "/paintings/:id" do
+        @painting = Painting.find(params[:id])
+        erb :'paintings/show'
+      end
+
+
 
    
 
