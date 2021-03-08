@@ -11,4 +11,4 @@ use Rack::MethodOverride
 run ApplicationController
 use UsersController
 use PaintingsController
-use ArtistController
+
