@@ -1,18 +1,11 @@
 <h1>Add a Painting</h1>
 
-<form action="/paintings" method="POST">
+<form action="/paintings/new" method="POST">
   <label> Painting Name </label>
-  <input type="text" name="painting_name"> </br>
+  <input type="text" name="painting_name"> 
 
   <label> Painting Year </label>
-  <input type="text" name="year"> </br>
-
-  <label> Painting Artist </label> <%# error: nothing reflecting in artist name drop down box%>
-  <select name="name">
-    <% current_user.paintings.each do |painting| %>
-      <option value=<%=painting.artist_id %>><%= painting.artist.name %></option>
-    <% end %>
-  </select>
+  <input type="text" name="year"> 
 
 
   <input type="submit" value="Create">
