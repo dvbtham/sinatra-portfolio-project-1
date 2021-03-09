@@ -4,11 +4,13 @@
 <p> Below is a list of your favorite paintings: </p>
 
 
-<% @current_user.paintings.each do |painting| %>
+<% @paintings.each do |painting| %>
+<% if painting.user_id == @current_user.id %>
   <div>
     Name: <%= painting.painting_name %>
     Year: <%= painting.year %>
   </div>
+  <% end %>
 <% end %>
 
 <p> <a href="/new"> Add New Painting</a>
