@@ -9,7 +9,7 @@ get '/signup' do
   if !logged_in?
     erb :'users/new_user'
   else
-    redirect to '/paintings'
+    redirect to '/'
   end
 end 
 
@@ -52,13 +52,7 @@ get '/logout' do
   end
 end
 
-#get '/user_homepage' do
-#  if logged_in?
-#    erb :'users/user_homepage'
-#  else
-#    redirect '/'
-#  end
-#end 
+
 
 
 end 
