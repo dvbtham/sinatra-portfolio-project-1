@@ -13,8 +13,6 @@ class PaintingsController < ApplicationController
     erb :'paintings/new'
   end 
 
-
-
     post "/new" do  #create post
       Painting.create(params)
       redirect "/user_homepage"
@@ -22,30 +20,36 @@ class PaintingsController < ApplicationController
 
 
 
- #   post '/index' do 
- #     if logged_in?
- #       if params[:content] == ""
- #         redirect to "/paintings/new"
- #       else
- #         @painting = current_user.paintings.build(name: params[:name])
- #         if @painting.save
- #           redirect to "/index/#{@tweet.id}"
- #         else
- #           redirect to "/paintings/new"
- #         end
- #       end
- #     else
- #       redirect to '/login'
- #     end
- #   end  
+   post '/user_homepage' do #changed from /index to /user_homepage. Did not fix.
+     if logged_in?
+       if params[:name] == ""
+         redirect to "/new"
+       else
+         @painting = current_user.paintings.build(name: params[:name])
+         if @painting.save
+           redirect to "/index/#{@painting.id}"
+         else
+           redirect to "/new"
+         end
+       end
+     else
+       redirect to '/login'
+     end
+   end  
 
 
-     
-  
 
     get "/paintings/:id/edit" do #update get
-        @painting = Painting.find(params[:id])
-        erb :'paintings/edit'
+      if logged_in?
+          @painting = Painting.find_by_id(params[:id])
+        if @painting && @painting.user == current_user
+          erb :'paintings/edit_tweet'
+        else
+        redirect to '/user_homepage'
+        end
+      else
+        redirect to '/login'
+      end
     end
 
     post "/paintings/:id" do #update post
@@ -68,7 +72,7 @@ class PaintingsController < ApplicationController
         end
       end 
       
-
+    #Need post /user_homepage to show users paintings?
 
 
 
