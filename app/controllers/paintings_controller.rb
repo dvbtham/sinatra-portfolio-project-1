@@ -1,6 +1,6 @@
 class PaintingsController < ApplicationController
 
-    get '/paintings' do
+    get '/index' do
         if logged_in?
           @paintings = Painting.all
           erb :'paintings/index'
@@ -8,6 +8,11 @@ class PaintingsController < ApplicationController
           redirect to '/login'
         end 
       end
+
+
+    post '/paintings' do #working on post method to show paintings created by user on user homepage
+          @painting = current_user.painting.build(name: params[:name])
+    end 
 
     post "/paintings/new" do  #create post
       Painting.create(params)
