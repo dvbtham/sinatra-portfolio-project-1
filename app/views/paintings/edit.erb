@@ -2,17 +2,10 @@
 
 <form action="/paintings/<%=@painting.id %>" method="POST">
   <label> Painting Name </label>
-  <input type="text" name="name" value="<%=@club.name %>"> </br>
+  <input type="text" name="name" value="<%=@club.name %>">
 
   <label> Painting Year </label>
-  <input type="text" name="year" value="<%=@painting.year%>"> </br>
-
-  <label> Artist Name </label>
-  <select name="artist_name">
-    <% current_user.paintings.each do |painting| %>
-      <option value=<%=painting.artist_id %> <%= "selected" if painting.artist_id==@painting.artist.id %> ><%= artist.name %></option>
-    <% end %>
-  </select>
+  <input type="text" name="year" value="<%=@painting.year%>"> 
 
   <input type="submit" value="Update">
 </form>
