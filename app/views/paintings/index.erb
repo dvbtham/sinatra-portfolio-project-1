@@ -1,4 +1,4 @@
-<h1> Hello, <%= current_user.username %>! </h1>
+<h1> Hello, <%= @current_user.username %>! </h1>
 <h2> Today's Popular Paintings </h2>
 
 <% @paintings.each do |painting| %>
@@ -10,4 +10,4 @@
   </div>
 <% end %>
 <p>
-<a href="users/user_homepage"> My Homepage </a> </p>
+<a href="/user_homepage"> My Homepage </a> </p>
