@@ -1,18 +1,18 @@
 class PaintingsController < ApplicationController
 
-    get '/index' do
-        if logged_in?
-          @paintings = Painting.all
-          erb :'paintings/index'
-        else
-          redirect to '/login'
-        end 
-      end
-
-
-    post '/paintings' do #working on post method to show paintings created by user on user homepage
-          @painting = current_user.painting.build(name: params[:name])
+  get '/index' do
+    if logged_in?
+      @paintings = Painting.all
+      erb :'paintings/index'
+    else
+      redirect to '/login'
     end 
+  end
+
+
+    #post '/paintings' do #working on post method to show paintings created by user on user homepage
+    #      @painting = current_user.painting.build(name: params[:name])
+    #end 
 
     post "/paintings/new" do  #create post
       Painting.create(params)
@@ -45,10 +45,11 @@ class PaintingsController < ApplicationController
         if logged_in?
           erb :'users/user_homepage'
         else
-          redirect '/'
+          redirect '/index'
         end
       end 
       
+
 
 
 
