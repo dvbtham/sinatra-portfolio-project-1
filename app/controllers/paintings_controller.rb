@@ -9,20 +9,39 @@ class PaintingsController < ApplicationController
     end 
   end
 
+  get "/new" do  #create get
+    erb :'paintings/new'
+  end 
 
-    #post '/paintings' do #working on post method to show paintings created by user on user homepage
-    #      @painting = current_user.painting.build(name: params[:name])
-    #end 
 
-    post "/paintings/new" do  #create post
+
+    post "/new" do  #create post
       Painting.create(params)
       redirect "/user_homepage"
      end
 
-    get "/new" do  #create get
-      erb :'paintings/new'
-    end  
 
+
+ #   post '/index' do 
+ #     if logged_in?
+ #       if params[:content] == ""
+ #         redirect to "/paintings/new"
+ #       else
+ #         @painting = current_user.paintings.build(name: params[:name])
+ #         if @painting.save
+ #           redirect to "/index/#{@tweet.id}"
+ #         else
+ #           redirect to "/paintings/new"
+ #         end
+ #       end
+ #     else
+ #       redirect to '/login'
+ #     end
+ #   end  
+
+
+     
+  
 
     get "/paintings/:id/edit" do #update get
         @painting = Painting.find(params[:id])
