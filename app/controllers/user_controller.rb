@@ -52,6 +52,15 @@ get '/logout' do
   end
 end
 
+#get '/user_homepage' do
+#  if logged_in?
+#    erb :'users/user_homepage'
+#  else
+#    redirect '/'
+#  end
+#end 
+
+
 end 
 
 
