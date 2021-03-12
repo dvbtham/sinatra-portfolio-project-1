@@ -1,11 +1,7 @@
 <h1>Edit <%= @painting.name %></h1>
 
-<form action="/paintings/<%=@painting.id %>" method="POST">
-  <label> Painting Name </label>
-  <input type="text" name="name" value="<%=@club.name %>">
-
-  <label> Painting Year </label>
-  <input type="text" name="year" value="<%=@painting.year%>"> 
-
-  <input type="submit" value="Update">
+<form method="post" action="/paintings/<%=@painting.id%>/edit">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <input type="text" name="painting_name" value="<%= @painting.painting_name %>">
+  <input type="submit" value="submit">
 </form>
