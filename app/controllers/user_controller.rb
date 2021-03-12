@@ -5,6 +5,10 @@ class UsersController < ApplicationController
       erb :'users/user_homepage'
   end
 
+get '/user_homepage' do
+  erb :'users/user_homepage'
+end 
+
 get '/signup' do
   if !logged_in?
     erb :'users/new_user'
@@ -37,7 +41,7 @@ post '/login' do
     user = User.find_by(:username => params[:username])
     if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        redirect to '/user_homepage'
+        redirect to 'users/user_homepage'
     else 
         redirect to 'users/new_user'
     end 
