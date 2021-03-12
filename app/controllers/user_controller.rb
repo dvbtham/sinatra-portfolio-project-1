@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
 get '/user_homepage' do
-  erb :'users/user_homepage'
+  erb :'/users/user_homepage'
 end 
 
 get '/signup' do
@@ -33,7 +33,7 @@ end
     if !logged_in?
       erb :'users/login'
     else
-      redirect '/index'
+      redirect '/user_homepage'
     end
   end
 
