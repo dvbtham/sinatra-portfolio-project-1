@@ -2,6 +2,14 @@
 
 <h2>Welcome <%= current_user.username %>!</h2>
 
+<p> Here are your paintings:
+
+<% @user.paintings.each do |painting| %>
+  <div>
+    <%= painting.name %>
+  </div>
+<% end %>
+
 <p> <button type="button"><a href="/new"> Add New Painting</a></button>
 
 <p> <button type="button"><a href="/index"> Click here to see today's popular paintings! </a></button> </p>
