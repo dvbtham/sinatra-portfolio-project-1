@@ -1,3 +1,8 @@
-<%= @painting.name %><br />
-<%= @painting.year %> <br />
+<% @paintings.each do |painting| %>
+  <div>
+    Name: "<%= painting.painting_name %>", 
+    Year: <%= painting.year %>
+   
+  </div>
+<% end %>
  
