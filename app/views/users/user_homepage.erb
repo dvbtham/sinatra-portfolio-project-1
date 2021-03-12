@@ -4,7 +4,7 @@
 
 <p> Here are your paintings:
 
-<% @user.paintings.each do |painting| %>
+<% @current_user.paintings.each do |painting| %>
   <div>
     <%= painting.name %>
   </div>
