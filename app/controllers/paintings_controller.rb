@@ -59,7 +59,7 @@ class PaintingsController < ApplicationController
       end
 
 
-      get "/paintings/:id" do #read get
+      get "/paintings/:id" do 
         @painting = Painting.find(params[:id])
         erb :'paintings/show'
       end
@@ -72,7 +72,7 @@ class PaintingsController < ApplicationController
         end
       end 
       
-    #Need post /user_homepage to show users paintings?
+
 
 
 
