@@ -36,14 +36,14 @@ class PaintingsController < ApplicationController
   # end
 
 
-  #   get '/paintings/:id' do
-  #     if logged_in?
-  #       @painting = Painting.find_by_id(params[:id])
-  #       erb :'paintings/show'
-  #     else
-  #       redirect to '/index'
-  #     end
-  #   end
+    get '/paintings/:id' do
+      if logged_in?
+        @painting = Painting.find_by_id(params[:id])
+        erb :'paintings/show'
+      else
+        redirect to '/login'
+      end
+    end
 
 
 
