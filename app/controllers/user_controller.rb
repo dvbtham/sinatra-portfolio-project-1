@@ -41,7 +41,7 @@ post '/login' do
     user = User.find_by(:username => params[:username])
     if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        redirect to 'users/user_homepage'
+        redirect to '/user_homepage'
     else 
         redirect to 'users/new_user'
     end 
