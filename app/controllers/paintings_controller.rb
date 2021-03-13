@@ -6,24 +6,24 @@ class PaintingsController < ApplicationController
       erb :'paintings/index'
     else
       redirect to '/login'
-    end 
+    end
   end
 
   get "/new" do  #create get
     erb :'paintings/new'
-  end 
+  end
 
   # post "/new" do  #create post
   #     Painting.create(params)
   #     redirect "/user_homepage"
   # end
 
-  post '/index' do 
+  post '/index' do
     if logged_in?
-      if params[:name] == ""
+      if params[:painting_name] == ""
         redirect to "/new"
       else
-        @painting = current_user.paintings.build(name: params[:name])
+        @painting = current_user.paintings.build(painting_name: params[:painting_name], year: params[:year])
         if @painting.save
           redirect to "/paintings/#{@painting.id}"
         else
@@ -63,12 +63,12 @@ class PaintingsController < ApplicationController
 
     patch '/paintings/:id' do
       if logged_in?
-        if params[:name] == ""
+        if params[:painting_name] == ""
           redirect to "/paintings/#{params[:id]}/edit"
         else
           @painting = Painting.find_by_id(params[:id])
           if @painting && @painting.user == current_user
-            if @painting.update(name: params[:name])
+            if @painting.update(painting_name: params[:painting_name], year: params[:year])
               redirect to "/paintings/#{@painting.id}"
             else
               redirect to "/paintings/#{@painting.id}/edit"
@@ -92,8 +92,5 @@ class PaintingsController < ApplicationController
       else
         redirect to '/login'
       end
-    end    
- 
-
-
-end 
+    end
+end

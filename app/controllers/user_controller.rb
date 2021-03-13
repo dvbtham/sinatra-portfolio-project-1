@@ -6,8 +6,12 @@ class UsersController < ApplicationController
   end
 
 get '/user_homepage' do
-  erb :'/users/user_homepage'
-end 
+  if !logged_in?
+    redirect to '/'
+  else
+    erb :'/users/user_homepage'
+  end
+end
 
 get '/signup' do
   if !logged_in?
@@ -15,7 +19,7 @@ get '/signup' do
   else
     redirect to '/'
   end
-end 
+end
 
 post '/signup' do
   if params[:username] == "" || params[:email] == "" || params[:password] == ""
@@ -42,10 +46,10 @@ post '/login' do
     if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect to '/user_homepage'
-    else 
-        redirect to 'users/new_user'
-    end 
-end 
+    else
+        redirect to '/login'
+    end
+end
 
 get '/logout' do
   if logged_in?
@@ -59,7 +63,7 @@ end
 
 
 
-end 
+end
 
 
 

@@ -1,12 +1,12 @@
 <h1> User Homepage </h1>
 
-<h2>Welcome <%= current_user.username %>!</h2>
+<h2>Welcome <%= current_user&.username %>!</h2>
 
 <p> Here are your paintings:
 
-<% @current_user.paintings.each do |painting| %>
+<% @current_user&.paintings&.each do |painting| %>
   <div>
-    <%= painting.name %>
+    <a href="/paintings/<%= painting.id %>"><%= painting.painting_name %></a>
   </div>
 <% end %>
 
